@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Permanent &mdash; Permanent  documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"]})</script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="install.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Permanent
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Permanent</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Permanent</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="permanent">
+<h1>Permanent<a class="headerlink" href="#permanent" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install.html#setting-up-your-environment">Setting up your environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#notes-about-the-makefile">Notes about the <code class="docutils literal notranslate"><span class="pre">Makefile</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+</div>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+<p>The permanent of a (square) matrix, like the determinant is a polynomial
+in the entries of the matrix. Unlike the determinant, the signatures of
+the permutations are not taken into account making the permanent much
+more difficult to compute because decomposition methods cannot be used.</p>
+<p>The permanent commonly appears in problems related to quantum mechanics,
+and the most common brute-force combinatorial method has time complexity
+<span class="math notranslate nohighlight">\(\mathcal{O}(N!N)\)</span>, thus it is useful to look for more efficient
+algorithms. The two algorithms considered to be the fastest are one by
+Ryser (based on the inclusion-exclusion principle), and one by Glynn
+(based on invariant theory).</p>
+<p>This library aims to solve the need for an efficient library that solves
+the permenent of a given matrix.</p>
+</div>
+<div class="section" id="algorithms">
+<h2>Algorithms<a class="headerlink" href="#algorithms" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">permanent.opt()</span></code></p>
+<p>Compute the permanent of a matrix using the best algorithm for the shape
+of the given matrix.</p>
+<p><strong>Parameters:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">matrix</span></code>: <code class="docutils literal notranslate"><span class="pre">np.ndarray(M,</span> <span class="pre">N,</span> <span class="pre">dtype=(np.double|np.complex))</span></code></p></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">permanent</span></code>: <code class="docutils literal notranslate"><span class="pre">(np.double|np.complex)</span></code> - Permanent of matrix.</p></li>
+</ul>
+<hr class="docutils" />
+<p><code class="docutils literal notranslate"><span class="pre">permanent.combinatoric()</span></code></p>
+<p>Compute the permanent of a matrix combinatorically.</p>
+<p><strong>Formula:</strong></p>
+<div class="math notranslate nohighlight">
+\[\text{per}(A) = \sum_{\sigma \in P(N,M)}{\prod_{i=1}^M{a_{i,{\sigma(i)}}}}\]</div>
+<p><strong>Parameters:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">matrix</span></code>: <code class="docutils literal notranslate"><span class="pre">np.ndarray(M,</span> <span class="pre">N,</span> <span class="pre">dtype=(np.double|np.complex))</span></code></p></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">permanent</span></code>: <code class="docutils literal notranslate"><span class="pre">(np.double|np.complex)</span></code> - Permanent of matrix.</p></li>
+</ul>
+<hr class="docutils" />
+<p><code class="docutils literal notranslate"><span class="pre">permanent.glynn()</span></code></p>
+<p><strong>Formula:</strong></p>
+<div class="math notranslate nohighlight">
+\[\text{per}(A) = \frac{1}{2^{N-1}} \cdot \sum_{\delta}{
+    \left(\sum_{k=1}^N{\delta_k}\right){\prod_{j=1}^N{\sum_{i=1}^N{\delta_i a_{i,j}}}}}\]</div>
+<p><strong>Additional Information:</strong> The original formula has been generalized
+here to work with <span class="math notranslate nohighlight">\(M\)</span>-by-<span class="math notranslate nohighlight">\(N\)</span> rectangular permanents with
+<span class="math notranslate nohighlight">\(M \leq N\)</span> by use of the following identity (shown here for
+<span class="math notranslate nohighlight">\(M \geq N\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\text{per}\left(\begin{matrix}a_{1,1} &amp; \cdots &amp; a_{1,N} \\ \vdots &amp; \ddots &amp; \vdots \\ a_{M,1} &amp; \cdots &amp; a_{M,N}\end{matrix}\right) = \frac{1}{(M - N + 1)!} \cdot \text{per}\left(\begin{matrix}a_{1,1} &amp; \cdots &amp; a_{1,N} &amp; 1_{1,N+1} &amp; \cdots &amp; 1_{1,M} \\ \vdots &amp; \ddots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ a_{M,1} &amp; \cdots &amp; a_{M,N} &amp; 1_{M,N+1} &amp; \cdots &amp; 1_{M,M}\end{matrix}\right)\end{split}\]</div>
+<p>This can be neatly fit into the original formula by extending the inner
+sums over <span class="math notranslate nohighlight">\(\delta\)</span> from <span class="math notranslate nohighlight">\([1,M]\)</span> to <span class="math notranslate nohighlight">\([1,N]\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\text{per}(A) = \frac{1}{2^{N-1}} \cdot \frac{1}{(N - M + 1)!}\cdot \sum_{\delta}{
+        \left(\sum_{k=1}^N{\delta_k}\right)
+        \prod_{j=1}^N{\left(
+            \sum_{i=1}^M{\delta_i a_{i,j}} + \sum_{i=M+1}^N{\delta_i}
+        \right)}
+    }\]</div>
+<p><strong>Parameters:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">matrix</span></code>: <code class="docutils literal notranslate"><span class="pre">np.ndarray(M,</span> <span class="pre">N,</span> <span class="pre">dtype=(np.double|np.complex))</span></code></p></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">permanent</span></code>: <code class="docutils literal notranslate"><span class="pre">(np.double|np.complex)</span></code> - Permanent of matrix.</p></li>
+</ul>
+<hr class="docutils" />
+<p><code class="docutils literal notranslate"><span class="pre">permanent.ryser()</span></code></p>
+<p><strong>Formula:</strong></p>
+<div class="math notranslate nohighlight">
+\[\text{per}(A) = \sum_{k=0}^{M-1}{
+        {(-1)}^k
+        \binom{N - M + k}{k}
+        \sum_{\sigma \in P(N,M-k)}{
+            \prod_{i=1}^M{
+                \sum_{j=1}^{M-k}{a_{i,{\sigma(j)}}}
+            }
+        }
+    }\]</div>
+<p><strong>Parameters:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">matrix</span></code>: <code class="docutils literal notranslate"><span class="pre">np.ndarray(M,</span> <span class="pre">N,</span> <span class="pre">dtype=(np.double|np.complex))</span></code></p></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">permanent</span></code>: <code class="docutils literal notranslate"><span class="pre">(np.double|np.complex)</span></code> - Permanent of matrix.</p></li>
+</ul>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<p>This code is distributed under the GNU General Public License version 3
+(GPLv3). See <a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a> for more information.</p>
+</div>
+<div class="section" id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="install.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, QC-Devs.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

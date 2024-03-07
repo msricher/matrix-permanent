@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation &mdash; Permanent  documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"]})</script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API" href="api.html" />
+    <link rel="prev" title="Permanent" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Permanent
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-your-environment">Setting up your environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#option-1-use-given-parameters">Option 1: Use given parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#option-2-tune-parameters">Option 2: Tune parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#notes-about-the-makefile">Notes about the <code class="docutils literal notranslate"><span class="pre">Makefile</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Permanent</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/install.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>The permanent package allows you to solve the permanent of a given matrix using the optimal algorithm for your matrix dimensions. You can either use the pre-defined parameters or fine tune them to your machine.</p>
+<div class="section" id="setting-up-your-environment">
+<h2>Setting up your environment<a class="headerlink" href="#setting-up-your-environment" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Install Python on your machine. Depending on your operating system, the instructions may vary.</p></li>
+<li><p>Install gcc on your machine. Depending on your operating system, the instructions may vary.</p></li>
+<li><p>Create and activate a virtual environment for this project named <code class="docutils literal notranslate"><span class="pre">permanents</span></code>. One way to do this is with pip.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install virtualenv
+virtualenv permanents
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Activate the virtual environment.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ~/permanents/bin/activate
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Install Sphinx and other dependencies.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install Sphinx sphinx-rtd-theme sphinx-copybutton
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Install Python dependencies.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install numpy pandas scikit-learn
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>(Optional) Install Pyest if you wish to run tests.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install pytest
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<p>Now that you have your environment set up and activated you are ready to compile the source code into an executable. Here you have two options - compile the code as is with the pre-defined parameters for algorithm swapping, <strong>or</strong> compile the code with machine specific tuning for algorithm swapping. <em>Note that machine specific tuning will run a series of tests. This will take anywhere from 10 minutes to 1 hour depending on your system.</em></p>
+<div class="section" id="option-1-use-given-parameters">
+<h3>Option 1: Use given parameters<a class="headerlink" href="#option-1-use-given-parameters" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>Compile the permanent code.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make <span class="nv">BUILD_NATIVE</span><span class="o">=</span><span class="m">1</span>
+</pre></div>
+</div>
+<p><strong>Note: if using M1 architecture, or want a portable build, simply run the following.</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>(Optional) Run tests on the algorithms.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make <span class="nb">test</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Compile the website.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> docs <span class="o">&amp;&amp;</span> make html
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Load the website.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&lt;browser&gt; build/html/index.html
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="option-2-tune-parameters">
+<h3>Option 2: Tune parameters<a class="headerlink" href="#option-2-tune-parameters" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>Compile the permanent code with the <code class="docutils literal notranslate"><span class="pre">tuning</span></code> flag.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make <span class="nv">RUN_TUNING</span><span class="o">=</span><span class="m">1</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<p><strong>Note: it will take some time to run the tuning tests on your machine.</strong></p>
+<ol class="arabic">
+<li><p>(Optional) Run tests on the algorithms.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make <span class="nb">test</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Compile the website.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> docs <span class="o">&amp;&amp;</span> make html
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Load the website.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&lt;browser&gt; build/html/index.html
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="notes-about-the-makefile">
+<h2>Notes about the <code class="docutils literal notranslate"><span class="pre">Makefile</span></code><a class="headerlink" href="#notes-about-the-makefile" title="Permalink to this headline">¶</a></h2>
+<p>The Makefile in this project is used to compile C and Python libraries and includes rules for installation, testing, and cleaning. Here’s a breakdown of its sections:</p>
+<ol class="arabic simple">
+<li><p>Variables:</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CXX</span></code>, <code class="docutils literal notranslate"><span class="pre">AR</span></code>, <code class="docutils literal notranslate"><span class="pre">PYTHON</span></code>: Define compiler, archiver, and Python executable.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CXXFLAGS</span></code>: Compiler flags including C++ version, warnings, debugging, optimization, and platform-specific options.</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>Conditional Compilation:</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ifeq</span> <span class="pre">($(shell</span> <span class="pre">uname</span> <span class="pre">-s),Darwin)</span></code>: Additional flags for macOS.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ifneq</span> <span class="pre">($(BUILD_NATIVE),)</span></code>: Optimization flags if building for native architecture.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ifneq</span> <span class="pre">($(RUN_TUNING),)</span></code>: Flag for runtime tuning.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ifeq</span> <span class="pre">($(PREFIX),)</span></code>: Default installation prefix.</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>Targets:</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">all</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code>, <code class="docutils literal notranslate"><span class="pre">python</span></code>: Phony targets for building all, C, or Python libraries.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">install</span></code>: Installs C libraries and headers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test</span></code>: Runs tests using pytest.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clean</span></code>: Removes generated files.</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>File generation:</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">compile_flags.txt</span></code>: Generates compilation flags for clangd.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src/tuning.h</span></code>: Generates tuning parameters header file.</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>Compilation Rules:</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">permanent/permanent.so</span></code>: Compiles Python extension module.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src/libpermanent.o</span></code>: Compiles object code.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">libpermanent.a,</span> <span class="pre">libpermanent.so</span></code>: Compiles static and shared C libraries respectively.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Permanent" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api.html" class="btn btn-neutral float-right" title="API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, QC-Devs.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

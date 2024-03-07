@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API &mdash; Permanent  documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"]})</script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Installation" href="install.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Permanent
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Permanent</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="api">
+<h1>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="permanent.opt">
+<code class="sig-prename descclassname">permanent.</code><code class="sig-name descname">opt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#permanent.opt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the permanent of a matrix using the best algorithm for the shape of the given matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>matrix</strong> (<em>np.ndarray</em><em>(</em><em>M</em><em>, </em><em>N</em><em>, </em><em>dtype=</em><em>(</em><em>np.double|np.complex</em><em>)</em><em>)</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>permanent</strong> – Permanent of matrix.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(np.double|np.complex)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="permanent.combinatoric">
+<code class="sig-prename descclassname">permanent.</code><code class="sig-name descname">combinatoric</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#permanent.combinatoric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the permanent of a matrix combinatorically.</p>
+<div class="math notranslate nohighlight">
+\[\text{per}(A) = \sum_{\sigma \in P(N,M)}{
+    \prod_{i=1}^M{a_{i,{\sigma(i)}}}
+}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>matrix</strong> (<em>np.ndarray</em><em>(</em><em>M</em><em>, </em><em>N</em><em>, </em><em>dtype=</em><em>(</em><em>np.double|np.complex</em><em>)</em><em>)</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>permanent</strong> – Permanent of matrix.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(np.double|np.complex)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="permanent.glynn">
+<code class="sig-prename descclassname">permanent.</code><code class="sig-name descname">glynn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#permanent.glynn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the permanent of a matrix via Glynn’s algorithm <a class="reference internal" href="#glynn" id="id1"><span>[Glynn]</span></a>.</p>
+<div class="math notranslate nohighlight">
+\[\text{per}(A) = \frac{1}{2^{N-1}} \cdot \sum_{\delta}{
+    \left(\sum_{k=1}^N{\delta_k}\right)
+    \prod_{j=1}^N{\sum_{i=1}^N{\delta_i a_{i,j}}}
+}\]</div>
+<p>The original formula has been generalized here to work with
+<span class="math notranslate nohighlight">\(M\)</span>-by-<span class="math notranslate nohighlight">\(N\)</span> rectangular permanents with <span class="math notranslate nohighlight">\(M \leq N\)</span>
+by use of the following identity (shown here for <span class="math notranslate nohighlight">\(M \geq N\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}{\text{per}}\left(
+    \begin{matrix}
+        a_{1,1} &amp; \cdots &amp; a_{1,N} \\
+        \vdots &amp; \ddots &amp; \vdots \\
+        a_{M,1} &amp; \cdots &amp; a_{M,N} \\
+    \end{matrix}
+\right)
+= \frac{1}{\left(M - N + 1\right)!} \cdot {\text{per}}\left(
+    \begin{matrix}
+        a_{1,1} &amp; \cdots &amp; a_{1,N} &amp; 1_{1,N+1} &amp; \cdots &amp; 1_{1,M} \\
+        \vdots &amp; \ddots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{M,1} &amp; \cdots &amp; a_{M,N} &amp; 1_{M,N+1} &amp; \cdots &amp; 1_{M,M} \\
+    \end{matrix}
+\right)\end{split}\]</div>
+<p>This can be neatly fit into the original formula by extending the inner sums
+over <span class="math notranslate nohighlight">\(\delta\)</span> from <span class="math notranslate nohighlight">\(\left[1,M\right]\)</span> to <span class="math notranslate nohighlight">\(\left[1,N\right]\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\text{per}(A) = \frac{1}{2^{N-1}} \cdot \frac{1}{\left(N - M + 1\right)!}
+\cdot \sum_{\delta}{
+    \left(\sum_{k=1}^N{\delta_k}\right)
+    \prod_{j=1}^N{\left(
+        \sum_{i=1}^M{\delta_i a_{i,j}} + \sum_{i=M+1}^N{\delta_i}
+    \right)}
+}\]</div>
+<dl class="citation">
+<dt class="label" id="glynn"><span class="brackets"><a class="fn-backref" href="#id1">Glynn</a></span></dt>
+<dd><p>Glynn, D. G. (2010). The permanent of a square matrix.
+<em>European Journal of Combinatorics</em>, 31(7), 1887-1891.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>matrix</strong> (<em>np.ndarray</em><em>(</em><em>M</em><em>, </em><em>N</em><em>, </em><em>dtype=</em><em>(</em><em>np.double|np.complex</em><em>)</em><em>)</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>permanent</strong> – Permanent of matrix.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(np.double|np.complex)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="permanent.ryser">
+<code class="sig-prename descclassname">permanent.</code><code class="sig-name descname">ryser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#permanent.ryser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the permanent of a matrix via Ryser’s algorithm <a class="reference internal" href="#ryser" id="id2"><span>[Ryser]</span></a>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\text{per}(A) = \sum_{k=0}^{M-1}{
+    {\left(-1\right)}^k
+    \left(\begin{matrix}N - M + k\\ k\end{matrix}\right)
+    \sum_{\sigma \in P(N,M-k)}{
+        \prod_{i=1}^M{
+            \sum_{j=1}^{M-k}{a_{i,{\sigma(j)}}}
+        }
+    }
+}\end{split}\]</div>
+<dl class="citation">
+<dt class="label" id="ryser"><span class="brackets"><a class="fn-backref" href="#id2">Ryser</a></span></dt>
+<dd><p>Ryser, H. J. (1963). <em>Combinatorial Mathematics</em> (Vol. 14).
+American Mathematical Soc..</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>matrix</strong> (<em>np.ndarray</em><em>(</em><em>M</em><em>, </em><em>N</em><em>, </em><em>dtype=</em><em>(</em><em>np.double|np.complex</em><em>)</em><em>)</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>permanent</strong> – Permanent of matrix.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(np.double|np.complex)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="install.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, QC-Devs.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
